@@ -27,7 +27,7 @@ function setup() {
 
   foodStock=db.ref('Food')
   foodStock.on("value",readStock)
-  textSize(20);
+  foodStock.set(20);
 
   foodObj=new Food();
 
@@ -42,8 +42,8 @@ function setup() {
 
   milkBottle2=createSprite(210,280,10,10)
   milkBottle2.addImage(milkimg);
-  milkBottle2=0.025
-  milkBottle2=false;
+  milkBottle2.scale=0.025
+  milkBottle2.visible=false;
 }
 
 
@@ -94,7 +94,7 @@ function draw() {
   }
 
   var Sleep=createButton("I am very sleepy");
-  Sleep.position(710,125)
+  Sleep.position(720,125)
  if(Sleep.mousePressed(function(){
    gamestate=4;
    db.ref('/').update({'gameState':gamestate});
